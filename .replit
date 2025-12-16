@@ -1,0 +1,16 @@
+run = "sh run.sh"
+entrypoint = "backend/main.py"
+
+hidden = [".pythonlibs", "__pycache__", ".git", "node_modules"]
+
+[nix]
+channel = "stable-23_11"
+
+[deployment]
+run = ["sh", "-c", "sh run.sh"]
+deploymentTarget = "cloudrun"
+
+[[ports]]
+localPort = 8000
+externalPort = 80
+
